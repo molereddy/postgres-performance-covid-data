@@ -5,11 +5,6 @@ from csv import reader
 from psycopg2.extras import RealDictCursor
 
 
-def exec_update(conn, sql):
-    with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-        cursor.execute(sql)
-
-
 def wrap(lst): return ["'"+ele+"'" for ele in lst]
 
 
@@ -32,7 +27,6 @@ for i in range(6, 11):
                             password=config.pswd, host=config.host, port=config.port)
 
             cur = conn.cursor()
-            exec_update(sql=update_sql(row), conn=conn)
-            conn.commit()
+            cur.execute(update_sql(row))
             cur.close()
         print(time.time()-start)
