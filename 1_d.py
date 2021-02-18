@@ -24,7 +24,7 @@ def update_sql(row):
 
 exec_update(sql="DELETE from COVID;", conn=conn)
 
-for i in range(2, 6):
+for i in range(1, 6):
     with open(f"data{i}.csv", 'r') as f:
         start = time.time()
         index = 0
