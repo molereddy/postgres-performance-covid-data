@@ -1,7 +1,8 @@
-import psycopg2
-import 1_b
+import psycopg2,config
 import time
-conn = 1_b.connect()
+conn = psycopg2.connect(database=config.name, user=config.user,
+                            password=config.pswd, host=config.host, port=config.port)
+
 cur = conn.cursor()
 
 copy_sql = """

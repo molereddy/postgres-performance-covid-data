@@ -1,19 +1,30 @@
-import psycopg2
-import 1_b
+import psycopg2,config
 import time
 from csv import reader
-conn = 1_b.connect()
+from psycopg2.extras import RealDictCursor
+
+conn = psycopg2.connect(database=config.name, user=config.user,
+                            password=config.pswd, host=config.host, port=config.port)
+
 cur = conn.cursor()
+
+def exec_update(conn, sql):
+    with conn.cursor(cursor_factory=RealDictCursor) as cursor:
+        cursor.execute(sql)
+
+
+def wrap(lst): return ["'"+ele+"'" for ele in lst]
 
 
 def update_sql(row):
     return f"""
             INSERT INTO covid
-            VALUES ({', '.join(1_b.wrap(row))});
-            """"
+            VALUES ({', '.join(wrap(row))});
+            """
 
+exec_update(sql="DELETE from COVID;", conn=conn)
 
-for i in range(1, 6):
+for i in range(2, 6):
     with open(f"data{i}.csv", 'r') as f:
         start = time.time()
         index = 0
@@ -21,8 +32,9 @@ for i in range(1, 6):
             index += 1
             if index == 1:
                 continue
-            1_b.exec_update(sql=update_sql(row), conn=conn)
+            exec_update(sql=update_sql(row), conn=conn)
         print(time.time()-start)
+        exec_update(sql="DELETE from COVID;", conn=conn)
 
 conn.commit()
 cur.close()
