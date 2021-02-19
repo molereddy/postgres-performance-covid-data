@@ -10997,3 +10997,4 @@ insert into covid values ('2020/11/14', '2020/11/17', '2020/11/14', 'Laboratory-
 insert into covid values ('2020/11/13', '2020/11/17', '2020/11/13', 'Laboratory-confirmed case', 'Female', '10 - 19 Years', 'White, Non-Hispanic', 'No', 'Unknown', 'No', 'Unknown');
 insert into covid values ('2020/11/17', '2020/11/17', '2020/11/17', 'Laboratory-confirmed case', 'Female', '10 - 19 Years', 'White, Non-Hispanic', 'No', 'Missing', 'Missing', 'Missing');
 insert into covid values ('2020/11/13', '2020/11/17', '2020/11/13', 'Laboratory-confirmed case', 'Female', '10 - 19 Years', 'White, Non-Hispanic', 'No', 'No', 'Missing', 'Missing');
+insert into covid values ('2020/11/11', '2020/11/17', '2020/11/11', 'Laboratory-confirmed case', 'Female', '10 - 19 Years', 'White, Non-Hispanic', 'No', 'Unknown', 'No', 'Unknown');

@@ -14,8 +14,6 @@ def update_sql(row):
             VALUES ({', '.join(wrap(row))});
             """
 
-# exec_update(sql="DELETE from COVID;", conn=conn)
-
 for i in range(1, 6):
     conn = psycopg2.connect(database=config.name, user=config.user,
                             password=config.pswd, host=config.host, port=config.port)
@@ -32,5 +30,5 @@ for i in range(1, 6):
         cur.execute("DELETE from COVID;")
 
 cur.close()
-
+conn.commit()
 

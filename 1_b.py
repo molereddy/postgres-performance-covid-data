@@ -1,17 +1,14 @@
-import glob, config
+import glob, config, os, shutil
 from csv import reader
+from pathlib import Path
+dirpath=Path('insert')
+if dirpath.exists() and dirpath.is_dir():
+    shutil.rmtree(dirpath)
+dirpath.mkdir()
 """to access results by column as a dictionary use:
 from psycopg2.extras import RealDictCursor
 then in connect use last argument as psycopg2.connect(..cursor_factory=RealDictCursor)
 then you can access as cur.fetchall()[row_num][col_name]"""
-
-import psycopg2
-from psycopg2.extras import RealDictCursor
-
-def exec_update(conn, sql):
-    with conn.cursor(cursor_factory=RealDictCursor) as cursor:
-        cursor.execute(sql)
-
 
 def wrap(lst): return ["'"+ele+"'" for ele in lst]
 

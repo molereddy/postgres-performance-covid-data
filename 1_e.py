@@ -25,8 +25,8 @@ for i in range(6, 11):
                 continue
             conn = psycopg2.connect(database=config.name, user=config.user,
                             password=config.pswd, host=config.host, port=config.port)
-
             cur = conn.cursor()
             cur.execute(update_sql(row))
             cur.close()
+            conn.commit()
         print(time.time()-start)
