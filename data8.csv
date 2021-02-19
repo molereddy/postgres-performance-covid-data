@@ -8998,3 +8998,4 @@ cdc_report_dt,pos_spec_dt,onset_dt,current_status,sex,age_group,Race and ethnici
 2020/11/11,2020/11/15,2020/11/11,Laboratory-confirmed case,Male,10 - 19 Years,"Multiple/Other, Non-Hispanic",No,No,Missing,Yes
 2020/11/15,2020/11/15,2020/11/15,Laboratory-confirmed case,Male,10 - 19 Years,"Multiple/Other, Non-Hispanic",No,No,Missing,Missing
 2020/11/11,2020/11/15,2020/11/11,Laboratory-confirmed case,Male,10 - 19 Years,"Multiple/Other, Non-Hispanic",No,No,No,No
+2020/11/04,2020/11/15,2020/11/04,Laboratory-confirmed case,Female,10 - 19 Years,Missing,No,No,No,No
